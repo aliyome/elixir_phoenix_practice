@@ -48,6 +48,16 @@ defmodule A do
 end
 ```
 
+## Ecto
+
+```sh
+# mix ecto.reset は以下と等価
+mix ecto.drop
+mix ecto.create
+mix ecto.migrate
+mix run priv/repo/seeds.exs
+```
+
 ## IEx
 
 - `i(target)`関数で色々と情報を表示できる

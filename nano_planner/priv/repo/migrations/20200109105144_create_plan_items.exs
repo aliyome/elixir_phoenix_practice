@@ -3,8 +3,8 @@ defmodule NanoPlanner.Repo.Migrations.CreatePlanItems do
 
   def change do
     create table(:plan_items) do
-      add :name, :string
-      add :description, :text
+      add :name, :string, null: false
+      add :description, :text, null: false
 
       timestamps()
     end
