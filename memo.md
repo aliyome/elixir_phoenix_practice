@@ -6,6 +6,39 @@
 - is_binary
 - String.valid? --- UTF8 の文字列かどうかを調べる。ガード節では使えない
 
+## Map
+
+```ex
+# 等価
+a = %{name: "hoge", age: 1}
+a = %{:name => "hoge", :age => 1}
+# 別物
+b = %{"name" => "foo", "age" => 2}
+
+a[:name]  # "hoge"
+a.name    # "hoge"
+b["name"] # "foo"
+b.name    # error
+
+# Mapもimmutableなので新しくMapが作られる
+a = %{a | age: 10}  # 更新っぽい使い方
+a = a |> Map.merge(%{address: "fooooo"}  # 追加っぽい使い方(更新もされる)
+```
+
+## Keyword list
+
+```ex
+# 等価
+a = [foo: 1, bar: 2]
+a = [{:foo, 1}, {:bar, 2}]
+a.foo   # error
+a[:foo] # 1
+
+# キーワードリストが引数の場合、角括弧が省略できる
+IO.inspect([foo: 1, bar:2])
+IO.inspect(foo:1, bar:2)
+```
+
 ## IEx
 
 - `i(target)`関数で色々と情報を表示できる
