@@ -51,6 +51,15 @@ IO.inspect(foo:1, bar:2)
   - `render(conn, "show.html", name: params["name"])`
     - `?name=hoge`と`/hoge`どちらの場合も`params["name"]`で値を取得可能
 
+### Production mode
+
+- `$ TEMP=$(mix phx.gen.secret)` で秘密鍵を作成する
+- `$ mix deps.get --only prod` で依存ライブラリを取得
+- `$ MIXENV=prod SECRET_KEY_BASE=$TEMP mix compile` でコンパイル
+- `$ npm run deploy --prefix ./assets` でアセットのコンパイル
+- `$ MIX_ENV=prod SECRET_KEY_BASE=$TEMP mix phx.digest` ダイジェスト付与
+- `$ PORT=4000 MIX_ENV=prod SECRET_KEY_BASE=$TEMP mix phx.server` 起動
+
 ## Webpack
 
 - module の use は下から上に(最後に宣言されたものが最初に)適用される
