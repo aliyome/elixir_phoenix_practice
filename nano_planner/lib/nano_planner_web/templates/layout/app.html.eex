@@ -5,10 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>NanoPlanner</title>
-    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <link rel="stylesheet" href='<%= Routes.static_path(@conn, "/css/app.css") %>'/>
   </head>
   <body>
+    <header>
+      <h1><%= link "NanoPlanner", to: Routes.top_path(@conn, :index, []) %></h1>
+    </header>
     <%= render @view_module, @view_template, assigns %>
+    <footer>
+      © 2020 aliyome
+    </footer>
     <script type='text/javascript' src='<%= Routes.static_path(@conn, "/js/app.js") %>'></script>
   </body>
 </html>
