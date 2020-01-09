@@ -39,6 +39,15 @@ IO.inspect([foo: 1, bar:2])
 IO.inspect(foo:1, bar:2)
 ```
 
+## 構造体
+
+```ex
+defmodule A do
+  # defstruct [:name, :email]
+  defstruct [{:name, "hoge"}, :email]  # :nameの初期値は"hoge"
+end
+```
+
 ## IEx
 
 - `i(target)`関数で色々と情報を表示できる
