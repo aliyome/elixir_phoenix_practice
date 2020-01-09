@@ -1,0 +1,1 @@
+docker run -d --name postgres --restart always -e POSTGRES_PASSWORD=postgres -p 35432:5432 postgres:alpine postgres

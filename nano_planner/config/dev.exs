@@ -6,6 +6,7 @@ config :nano_planner, NanoPlanner.Repo,
   password: "postgres",
   database: "nano_planner_dev",
   hostname: "localhost",
+  port: 35432,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
