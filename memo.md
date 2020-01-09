@@ -50,6 +50,8 @@ IO.inspect(foo:1, bar:2)
 - クエリパラメータとパスパラメータは同一変数
   - `render(conn, "show.html", name: params["name"])`
     - `?name=hoge`と`/hoge`どちらの場合も`params["name"]`で値を取得可能
+- RAVT の順で作ると迷わなくて良い
+  - Route, Action, View, Template
 
 ### Production mode
 
