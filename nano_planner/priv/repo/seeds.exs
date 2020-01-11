@@ -9,8 +9,8 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
-alias NanoPlanner.Repo, as: Repo
-alias NanoPlanner.PlanItem, as: PlanItem
+alias NanoPlanner.Repo
+alias NanoPlanner.PlanItem
 
 Repo.insert!(%PlanItem{
   name: "読書",
