@@ -1,0 +1,6 @@
+<div>
+<div><%= @plan_item.id %></div>
+<div><%= @plan_item.name %></div>
+<div><%= format_duration(@plan_item) %></div>
+<div><%= @plan_item.description %></div>
+</div>

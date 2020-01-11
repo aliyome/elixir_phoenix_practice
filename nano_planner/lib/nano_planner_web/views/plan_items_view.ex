@@ -2,7 +2,7 @@ defmodule NanoPlannerWeb.PlanItemsView do
   use NanoPlannerWeb, :view
   alias Timex.Format.DateTime.Formatters.Strftime
 
-  def format_duration(item) do
+  def format_duration(%NanoPlanner.PlanItem{} = item) do
     s = item.starts_at |> utc_to_jst()
     e = item.ends_at |> utc_to_jst()
 
@@ -13,7 +13,7 @@ defmodule NanoPlannerWeb.PlanItemsView do
     end
   end
 
-  defp format_jst(jst) do
+  defp format_jst(%DateTime{} = jst) do
     if jst.year == Timex.now().year do
       Strftime.format!(jst, "%-m/%-d %H:%M")
     else
@@ -21,7 +21,7 @@ defmodule NanoPlannerWeb.PlanItemsView do
     end
   end
 
-  defp utc_to_jst(utc) do
+  defp utc_to_jst(%DateTime{} = utc) do
     tokyo_tz = Timex.Timezone.get("Asia/Tokyo")
     utc |> Timex.Timezone.convert(tokyo_tz)
   end
