@@ -1,1 +1,1 @@
-<p>top#index</p>
+<div><%= link "予定表", to: Routes.plan_items_path(@conn, :index) %>
