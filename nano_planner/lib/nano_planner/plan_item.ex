@@ -5,6 +5,8 @@ defmodule NanoPlanner.PlanItem do
   schema "plan_items" do
     field :description, :string
     field :name, :string
+    field :starts_at, :utc_datetime
+    field :ends_at, :utc_datetime
 
     timestamps()
   end
