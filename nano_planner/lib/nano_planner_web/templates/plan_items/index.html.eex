@@ -5,6 +5,9 @@
       <%= item.name %>
     </div>
     <div>
+      <%= item.starts_at %> - <%= item.ends_at %>
+    </div>
+    <div>
       <%= item.description %>
     </div>
   </div>
