@@ -9,10 +9,10 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
-alias NanoPlanner.Repo
+import NanoPlanner.Repo, only: [insert!: 1]
 alias NanoPlanner.PlanItem
 
-Repo.insert!(%PlanItem{
+insert!(%PlanItem{
   name: "読書",
   description: "「走れメロス」を読む"
 })
