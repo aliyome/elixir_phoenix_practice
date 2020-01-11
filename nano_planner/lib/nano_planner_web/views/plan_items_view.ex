@@ -5,11 +5,20 @@ defmodule NanoPlannerWeb.PlanItemsView do
   def format_duration(item) do
     s = item.starts_at |> utc_to_jst()
     e = item.ends_at |> utc_to_jst()
-    "#{format_utc(s)} - #{format_utc(e)}"
+
+    if Timex.to_date(s) == Timex.to_date(e) do
+      "#{format_jst(s)}"
+    else
+      "#{format_jst(s)} - #{format_jst(e)}"
+    end
   end
 
-  defp format_utc(utc) do
-    Strftime.format!(utc, "%Y/%m/%d %H:%M")
+  defp format_jst(jst) do
+    if jst.year == Timex.now().year do
+      Strftime.format!(jst, "%-m/%-d %H:%M")
+    else
+      Strftime.format!(jst, "%Y/%-m/%-d %H:%M")
+    end
   end
 
   defp utc_to_jst(utc) do
