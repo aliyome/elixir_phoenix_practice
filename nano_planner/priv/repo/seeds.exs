@@ -9,7 +9,7 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
-import NanoPlanner.Repo, only: [insert!: 1]
+import NanoPlanner.Repo
 alias NanoPlanner.PlanItem
 
 insert!(%PlanItem{
