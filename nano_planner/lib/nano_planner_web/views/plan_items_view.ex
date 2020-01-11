@@ -13,6 +13,10 @@ defmodule NanoPlannerWeb.PlanItemsView do
     end
   end
 
+  def format_wday(datetime) do
+    Enum.at(~w(日月火水木金土), Timex.days_to_beginning_of_week(datetime, :sun))
+  end
+
   defp format_jst(%DateTime{} = jst) do
     if jst.year == Timex.now().year do
       Strftime.format!(jst, "%-m/%-d %H:%M")
