@@ -1,1 +1,5 @@
-<div><%= link "予定表", to: Routes.plan_items_path(@conn, :index) %>
+<div>
+  <%= link to: Routes.plan_items_path(@conn, :index) do %>
+    📝予定表
+  <% end %>
+</div>
